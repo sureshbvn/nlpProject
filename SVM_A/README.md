@@ -35,7 +35,8 @@ Tools: Install numpy, gensim, sklean, nltk, scipy for python
 7. evaluate.py - calculates overall accuracy, precision, recall and f1 measures for 5 classes
 	
 <h3>Programs-</h3>
-Overall Accuracy = 69.3%
+<h4>Overall Accuracy = 69.3%</h4>
+<h4>F1 measures:</h4>
 1. for class 1 0.511235107827   
 2. for class 2 0.036676217765
 3. for class 3 0.0972375690608 
