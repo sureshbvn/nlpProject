@@ -1,11 +1,21 @@
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/desilinguist/swig-srilm/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
-### SWIG-SRILM: A SWIG-based wrapper for an SRILM language model
+### Ngram Based Punctuation Restoration
 ==========
 
 #### Description
-This package contains files to generate Perl and Python wrappers for 
-[SRILM](http://www.speech.sri.com/projects/srilm/) language models.
+================
+Steps Involved:
+1)Pre process the training data to change all the "," to ",COMMA" and all the periods "." to ".PERIOD". 
+
+2)Create all possible n-grams from the training data. The n value can be dynamic. But the n value chosen for experimenting is 4.
+
+3)The model file is created which contains the probablity of Word given context.
+
+4)The test data is an output of ASR data. The current format which is used is all lower case strings with no punctations. 
+
+5)The smoothing technique used is Stupid Backoff. The module restores the puncations on test data.
+
 
 #### Requirements
 - GNU make
@@ -13,16 +23,8 @@ This package contains files to generate Perl and Python wrappers for
 - A local Python and/or Perl installation
 - The SRILM toolkit (v1.7.1). If you have an older version of SRILM e.g., the 1.5.x series then you should use the `old_srilm` branch. Note that SRILM should have been compiled as position independent code. You can do that by using the command `MAKE_PIC=yes make` when compiling SRILM.
 
-*IMPORTANT*: This code has been extensively tested on x86-64 machines running Linux. There's a branch (`macosx`) that should compile on the latest version of OS X 10.11 (assuming you have installed `swig`) but only with the built-in python (`/usr/bin/python`). Please freel free to try it and let me know if it does/doesn't work.
-
+*IMPORTANT*: This code has been extensively tested on x86-64 machines running Linux. 
 #### Installation:
-- Modify the following environment variables at the top of the included Makefile:
- - `SRILM_LIBS` : The directory containing the SRILM libraries
- - `SRILM_INC`  : The directory containing the SRILM header files
- - `PYTHON_INC` : The directory containing the python header files
- - `PERL_INC`   : The directory containing the perl header files
-
-- To create a Python module, run 'make python' in this directory. 
 Copy `_srilm.so` and `srilm.py` to your directory where you want to 
 use the python module. You can run the included `test.py` script to check 
 whether the compiled module works correctly. The output of test.py should be
@@ -59,7 +61,7 @@ Copy `srilm.so` and `srilm.pm` to the directory of your choice.
 Run the included Perl script 'test.pl' to test whether the compiled module works correctly.
 The output should be the same as above.
 
-#### Usage:
-Usage is clearly illustrated in files `test.pl` and `test.py`. 
+
+ 
 
 

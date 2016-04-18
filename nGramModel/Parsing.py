@@ -41,7 +41,7 @@ class Parsing:
 
     def pre_processing(self, inputString):
 
-        punctuations = {',': ' ,COMMA ', ':': ' .PEROID ', '.': ' .PEROID ', '!': ' .PEROID ', ';': ' .PERIOD ', '?': ' ?Q-MARK ',' ':' epsilon '}
+        punctuations = {',': ' ,COMMA ', ':': ' .PEROID ', '.': ' .PERI0D ', '!': ' .PEROID ', ';': ' .PERIOD ', '?': ' ?Q-MARK ',' ':' epsilon '}
 
         changed_string = ""
         for char in inputString:
@@ -81,10 +81,30 @@ class Parsing:
                 log.write(line)
 
             f.close()
+    def create_vocabular(self,vocab_file):
+        punctuations = {',': ' ,COMMA ', ':': ' .PEROID ', '.': ' .PERI0D ', '!': ' .PEROID ', ';': ' .PERIOD ',
+                        '?': ' ?Q-MARK ', ' ': ' epsilon '}
+
+        voc=open(vocab_file,"w+")
+
+        train=open(self.file_to_be_parsed,"r")
+        for line in train:
+            words=line.split()
+            for word in words:
+                if word not in punctuations.keys():
+                    word=word.replace(",","")
+                    word = word.replace(".", "")
+                    voc.write(word+"\n")
+        voc.close()
+        train.close()
 
 
 if __name__ == "__main__":
-    parsing = Parsing("input.txt", 3)
+
+
+
+    parsing = Parsing("file1.txt", 4)
+    parsing.create_vocabular("vocab.txt")
     parsing.parse()
     parsing.calculate_probablities()
     parsing.parse_modified()
