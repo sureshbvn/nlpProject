@@ -1,4 +1,4 @@
-tagger = 'german-fast.tagger'
+tagger = 'german-hgc.tagger'
 taggerJARPath = 'C:\\Users\\Shivankur Kapoor\\PycharmProjects\\nlpProject\\SVM\\stanford-postagger.jar'
 
 chunkFile = "E:\\chunk.txt"
