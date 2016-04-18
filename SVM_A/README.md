@@ -9,7 +9,7 @@ indicating the punctuation and capitalization as follows:
 4. Class4 - Token is followed by period
 5. Class5 - Token is followed by comma
 
-<h5>Features:  
+Features:  
 1. POS Tags(STTS Tags) : Using [Stanford German Tagger](http://nlp.stanford.edu/software/tagger.shtml)
 2. Chunk Tags : Using [Tree Tagger](http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/)
 3. Word Features : Using [Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html)
