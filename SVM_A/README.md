@@ -1,20 +1,20 @@
 # Restoring Casing and Punctuation in Spoken German Transcript
 
 <h3>Introduction-</h3>
-This approach aims to train a model using SVM classifier that classifies each token in the transcript into 5 classes
-indicating the punctuation and capitalization as follows:
+<h4>This approach aims to train a model using SVM classifier that classifies each token in the transcript into 5 classes
+indicating the punctuation and capitalization as follows:</h4>
 1. Class1 - First character is capital
 2. Class2 - First character is capital and token is followed by period
 3. Class3 - First character is capital and token is followed by comma
 4. Class4 - Token is followed by period
 5. Class5 - Token is followed by comma
 
-Features:  
+<h4>Features:</h4>  
 1. POS Tags(STTS Tags) : Using [Stanford German Tagger](http://nlp.stanford.edu/software/tagger.shtml)
 2. Chunk Tags : Using [Tree Tagger](http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/)
 3. Word Features : Using [Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html)
 
-Classifier:
+<h4>Classifier:</h4>
 1. SVM Classifier - [BSVM](https://www.csie.ntu.edu.tw/~cjlin/bsvm/)
 
 Tools: Install numpy, gensim, sklean, nltk, scipy for python
