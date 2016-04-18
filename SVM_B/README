@@ -1,0 +1,31 @@
+BSVM:
+
+*****************************************************************
+
+           COPYRIGHT NOTIFICATION
+
+This application can be freely used for research purpose.
+Use for commercial purposes is expressly prohibited
+without contacting the authors.
+The application is provided "as is" without express or implied warranty.
+
+Divyansh Jain
+Department of Computer Science
+University of Southern California
+Los Angeles, California
+e-mail: divyansj@usc.edu
+
+*****************************************************************
+
+           INSTRUCTIONS
+          
+ Run the script 'new_tagging.py' as the first pre processing step to form the training model for SVM. The following are produced as output:
+
+        save_word_model.txt    output.txt    chunk.txt
+
+   'save_word_model.txt' contains the word vector model trained over 50000 lines of german transcipts in Europarl dataset. The word vector model uses word2vec to train the model.
+
+   'output.txt' contains the intermediary features created for the training dataset.
+
+   'chunk.txt' contains the chunk tags extracted using the German tree tagger.
+

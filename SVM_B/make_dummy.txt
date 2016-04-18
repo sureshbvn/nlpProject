@@ -1,0 +1,21 @@
+Paprika	NN	Paprika NC
+geh?ren	VVFIN	geh?ren VC
+zu	APPR	zu PC
+den	ART	die PC
+Dreifurchenpollen-Zweikeimbl?ttrigen	ADJA	Dreifurchenpollen-Zweikeimbl?ttrigen PC
+Pflanzen	NN	Pflanze|Pflanzen PC
+;	$.	;
+die	ART	die NC
+Samen	NN	Same NC
+keimen	VVFIN	keimen VC
+oberirdisch	ADJD	oberirdisch
+(	$(	(
+epig?isch	ADJD	epig?isch
+)	$(	)
+,	$,	,
+sie	PPER	sie NC
+bilden	VVFIN	bilden VC
+zwei	CARD	zwei NC
+Keimbl?tter	NN	Keimbl?tter NC
+.	$.	.
+Die	ART	die NC
