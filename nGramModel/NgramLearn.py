@@ -1,5 +1,7 @@
 import itertools
 from srilm import *
+import string
+from clean_test_corpus import Clean
 
 
 class NgramTest:
@@ -19,7 +21,7 @@ class NgramTest:
         list1.append(bigram[1])
         list1.extend(self.puncationlist)
         combination_list = list(itertools.permutations(list1))
-        print combination_list
+        #print combination_list
 
     def get_probability(self, ngram):
 
@@ -29,6 +31,9 @@ class NgramTest:
         if length>5:
             raise ValueError('The n value specified is greater than 5')
         p6 = getNgramProb(self.n, ngram,length)
+        #p6 = getSentenceProb(self.n, ngram, length)
+        print ngram
+        print p6
         return p6
 
 
@@ -57,62 +62,72 @@ class NgramTest:
 
     def punctuate(self,string_list):
 
-        print string_list
+        #print string_list
 
-        string1=str(string_list[0]+" "+",COMMA"+" "+string_list[1]+" .PERIOD")
-
-        print "The string 1 is " +string1
-        '''
-        string12 = str(string_list[0].title() + " " + ",COMMA" + " " + string_list[1] + " .PERIOD")
-        string13 = str(string_list[0] + " " + ",COMMA" + " " + string_list[1],title()+ " .PERIOD")
+        string11=str(string_list[0]+" "+",COMMA"+" "+string_list[1]+" .PERIOD")
 
 
-        string14 = str(string_list[0].title() + " " + ",COMMA" + " " + string_list[1].title() + " .PERIOD")
-        '''
+        string21 = str(string_list[0] + " " + ".PERIOD" + " " + string_list[1] + " ,COMMA")
 
-        string2 = str(string_list[0] + " " + ".PERIOD" + " " + string_list[1] + " ,COMMA")
-        '''
-        string22 = str(string_list[0].title() + " " + ".PERIOD" + " " + string_list[1] + " ,COMMA")
-        string23 = str(string_list[0] + " " + ".PERIOD" + " " + string_list[1].title() + " ,COMMA")
-        string24 = str(string_list[0].title() + " " + ".PERIOD" + " " + string_list[1].title() + " ,COMMA")
-        '''
+        string31 = str(string_list[0] + " " + "epsilon " + string_list[1] + " .PERIOD")
 
+        string41 = str(string_list[0] + " " + ",COMMA" + " " + string_list[1]+" "+"epsilon ")
 
-        string3 = str(string_list[0] + " " + " " + string_list[1] + " .PERIOD")
-        '''
-        string32 = str(string_list[0].title() + " " + " " + string_list[1] + " .PERIOD")
-        string33 = str(string_list[0] + " " + " " + string_list[1].title() + " .PERIOD")
-        string34 = str(string_list[0].title() + " " + " " + string_list[1].title() + " .PERIOD")
-        '''
+        string5 = str(string_list[0] + " " + "epsilon "+ string_list[1] + " ,COMMA")
 
-        string4 = str(string_list[0] + " " + ",COMMA" + " " + string_list[1])
-        string5 = str(string_list[0] + " " + " " + string_list[1] + " ,COMMA")
-        string6 = str(string_list[0] + " " + ".PERIOD" + " " + string_list[1])
-        string7 = str(string_list[0] + " " + string_list[1])
+        string6 = str(string_list[0] + " " + ".PERIOD" + " " + string_list[1]+" "+"epsilon")
+
+        string7 = str(string_list[0] + " "+"epsilon " + string_list[1]+" epsilon")
+
+        string8 = str(string_list[0] + " " + ".PERIOD " + string_list[1] + " .PERIOD")
+
+        string9 = str(string_list[0] + " " + ",COMMA " + string_list[1] + " ,COMMA")
 
 
 
 
-        prob1=ngram.get_probability(string1)
-        print prob1
-        prob2 = ngram.get_probability(string2)
-        prob3 = ngram.get_probability(string3)
-        prob4 = ngram.get_probability(string4)
+        prob11=ngram.get_probability(string11)
+
+
+        prob21 = ngram.get_probability(string21)
+
+
+        prob31 = ngram.get_probability(string31)
+
+
+        prob41 = ngram.get_probability(string41)
+
+
+
         prob5 = ngram.get_probability(string5)
         prob6 = ngram.get_probability(string6)
         prob7 = ngram.get_probability(string7)
+        prob8 = ngram.get_probability(string8)
+        prob9 = ngram.get_probability(string9)
 
         prob_list={}
-        prob_list[float(prob1)]=string1
-        prob_list[float(prob2)] = string2
-        prob_list[float(prob3)] = string3
-        prob_list[float(prob4)] = string4
+        prob_list[float(prob11)]=string11
+
+
+
+        prob_list[float(prob21)] = string21
+
+
+        prob_list[float(prob31)] = string31
+
+
+        prob_list[float(prob41)] = string41
+
+
         prob_list[float(prob5)] = string5
         prob_list[float(prob6)] = string6
         prob_list[float(prob7)] = string7
+        prob_list[float(prob8)] = string8
+        prob_list[float(prob9)] = string9
         #print prob_list
 
         maxValue=self.max_in_list(prob_list)
+        print maxValue
         return prob_list[maxValue]
 
 
@@ -150,16 +165,17 @@ class NgramTest:
                     list=[]
                     list.append(string[i])
                     list.append(string[i+1])
-                    print "before"
-                    print list
+                    #print "before"
+                    #print list
 
                     stringnew=self.punctuate(list)
+
                     print stringnew
                     self.fw.write(stringnew+" ")
 
                 else:
-                    print string[i]
-                    self.fw.write(string[i] + ".PERIOD")
+                    #print string[i]
+                    self.fw.write(string[i] + " .PERIOD ")
             self.fw.write("\n")
         self.fw.close()
 
@@ -174,9 +190,11 @@ class NgramTest:
 
 
 if __name__ == "__main__":
-    ngram = NgramTest("final_corpus.lm", "test_output.txt")
+    clean = Clean("uncleaned_test_data.txt", "test_corpus.txt")
+    ngram = NgramTest("newmodel.lm", "test_corpus.txt")
 
-    readLM(ngram.n, "final_corpus.lm")
+
+    readLM(ngram.n, "newmodel.lm")
 
 
 
