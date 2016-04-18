@@ -10,9 +10,9 @@
 	• Class5 - Token is followed by comma
 
 	Features:  
-	• POS Tags(STTS Tags) : Using [Stanford German Tagger](http://nlp.stanford.edu/software/tagger.shtml)
-	• Chunk Tags : Using [Tree Tagger](http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/)
-	• Word Features : Using [Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html)
+	• POS Tags(STTS Tags) : Using [!Stanford German Tagger](http://nlp.stanford.edu/software/tagger.shtml)
+	• Chunk Tags : Using [!Tree Tagger](http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/)
+	• Word Features : Using [!Word2Vec](https://radimrehurek.com/gensim/models/word2vec.html)
 
 	Classifier:
     • SVM Classifier - [BSVM](https://www.csie.ntu.edu.tw/~cjlin/bsvm/)
@@ -20,7 +20,7 @@
 	Tools: Install numpy, gensim, sklean, nltk, scipy for python
     
 <h3> Datasource - Europarl: A Parallel Corpus for Statistical Machine Translation (German Language Version)</h3>
-    • [Europarl Dataset](http://www.statmt.org/europarl/)
+    • [!Europarl Dataset](http://www.statmt.org/europarl/)
 	• Traininig Data - input.txt contains first 10,000 lines of Europarl Dataset German version
     • Testing Data - TestRaw.txt contains 10,001 to 13,000 lines 	
 	 
